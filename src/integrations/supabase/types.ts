@@ -14,7 +14,188 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      production_ingredients: {
+        Row: {
+          created_at: string | null
+          id: string
+          product_id: string | null
+          production_order_id: string | null
+          quantity_used: number
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          product_id?: string | null
+          production_order_id?: string | null
+          quantity_used: number
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          product_id?: string | null
+          production_order_id?: string | null
+          quantity_used?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "production_ingredients_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "production_ingredients_production_order_id_fkey"
+            columns: ["production_order_id"]
+            isOneToOne: false
+            referencedRelation: "production_orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      production_orders: {
+        Row: {
+          chef_notes: string | null
+          created_at: string | null
+          created_by: string | null
+          dish_name: string
+          expiry_date: string | null
+          id: string
+          order_number: string
+          production_date: string | null
+          qr_code: string | null
+          quantity: number
+          status: Database["public"]["Enums"]["production_status"] | null
+          updated_at: string | null
+        }
+        Insert: {
+          chef_notes?: string | null
+          created_at?: string | null
+          created_by?: string | null
+          dish_name: string
+          expiry_date?: string | null
+          id?: string
+          order_number: string
+          production_date?: string | null
+          qr_code?: string | null
+          quantity: number
+          status?: Database["public"]["Enums"]["production_status"] | null
+          updated_at?: string | null
+        }
+        Update: {
+          chef_notes?: string | null
+          created_at?: string | null
+          created_by?: string | null
+          dish_name?: string
+          expiry_date?: string | null
+          id?: string
+          order_number?: string
+          production_date?: string | null
+          qr_code?: string | null
+          quantity?: number
+          status?: Database["public"]["Enums"]["production_status"] | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          batch_number: string | null
+          category: Database["public"]["Enums"]["product_category"]
+          cost_per_unit: number | null
+          created_at: string | null
+          expiry_date: string
+          id: string
+          is_valuable: boolean | null
+          name: string
+          notes: string | null
+          purchase_date: string | null
+          quantity: number
+          status: Database["public"]["Enums"]["product_status"] | null
+          supplier: string | null
+          unit: string
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          batch_number?: string | null
+          category: Database["public"]["Enums"]["product_category"]
+          cost_per_unit?: number | null
+          created_at?: string | null
+          expiry_date: string
+          id?: string
+          is_valuable?: boolean | null
+          name: string
+          notes?: string | null
+          purchase_date?: string | null
+          quantity?: number
+          status?: Database["public"]["Enums"]["product_status"] | null
+          supplier?: string | null
+          unit?: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          batch_number?: string | null
+          category?: Database["public"]["Enums"]["product_category"]
+          cost_per_unit?: number | null
+          created_at?: string | null
+          expiry_date?: string
+          id?: string
+          is_valuable?: boolean | null
+          name?: string
+          notes?: string | null
+          purchase_date?: string | null
+          quantity?: number
+          status?: Database["public"]["Enums"]["product_status"] | null
+          supplier?: string | null
+          unit?: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      stock_movements: {
+        Row: {
+          created_at: string | null
+          created_by: string | null
+          id: string
+          movement_type: string
+          product_id: string | null
+          quantity: number
+          reason: string | null
+          reference_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          created_by?: string | null
+          id?: string
+          movement_type: string
+          product_id?: string | null
+          quantity: number
+          reason?: string | null
+          reference_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          created_by?: string | null
+          id?: string
+          movement_type?: string
+          product_id?: string | null
+          quantity?: number
+          reason?: string | null
+          reference_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "stock_movements_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +204,16 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      product_category:
+        | "carnes"
+        | "vegetais"
+        | "laticinios"
+        | "graos"
+        | "temperos"
+        | "bebidas"
+        | "outros"
+      product_status: "ativo" | "vencido" | "descartado"
+      production_status: "pendente" | "em_preparo" | "finalizado" | "cancelado"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +340,18 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      product_category: [
+        "carnes",
+        "vegetais",
+        "laticinios",
+        "graos",
+        "temperos",
+        "bebidas",
+        "outros",
+      ],
+      product_status: ["ativo", "vencido", "descartado"],
+      production_status: ["pendente", "em_preparo", "finalizado", "cancelado"],
+    },
   },
 } as const

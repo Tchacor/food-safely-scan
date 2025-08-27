@@ -2,41 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Kitchen Management System Design System - Professional, Clean & Safe */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Primary Kitchen Brand Colors - Professional Blues and Greens */
+    --primary: 208 100% 30%;        /* Deep professional blue */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 208 100% 25%;   /* Darker blue for hover */
+    
+    /* Secondary - Clean Kitchen Green */
+    --secondary: 142 67% 45%;        /* Fresh, clean green */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 142 67% 40%;
+    
+    /* Alert System Colors */
+    --warning: 38 95% 56%;           /* Amber for warnings */
+    --warning-foreground: 26 100% 10%;
+    --danger: 0 84% 55%;             /* Red for expired items */
+    --danger-foreground: 0 0% 100%;
+    --success: 142 67% 45%;          /* Green for success */
+    --success-foreground: 0 0% 100%;
+    
+    /* Neutral System */
+    --background: 210 17% 98%;       /* Very light blue-gray */
+    --foreground: 210 24% 16%;       /* Dark blue-gray text */
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --card-foreground: 210 24% 16%;
+    --card-border: 210 20% 92%;
+    
+    --muted: 210 17% 95%;            /* Light blue-gray backgrounds */
+    --muted-foreground: 210 12% 47%; /* Medium gray text */
+    
+    --accent: 208 100% 97%;          /* Very light brand blue */
+    --accent-foreground: 208 100% 30%;
+    
+    --border: 210 20% 88%;
+    --input: 210 17% 95%;
+    --ring: 208 100% 30%;
+    
+    /* Kitchen-specific color tokens */
+    --fresh: 142 67% 45%;            /* Fresh ingredients */
+    --fresh-light: 142 67% 95%;
+    --expiring: 38 95% 56%;          /* Items expiring soon */
+    --expiring-light: 38 95% 95%;
+    --expired: 0 84% 55%;            /* Expired items */
+    --expired-light: 0 84% 95%;
+    --valuable: 260 100% 65%;        /* Valuable ingredients highlight */
+    --valuable-light: 260 100% 97%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(208 100% 30%), hsl(208 100% 40%));
+    --gradient-fresh: linear-gradient(135deg, hsl(142 67% 45%), hsl(142 67% 55%));
+    --gradient-warning: linear-gradient(135deg, hsl(38 95% 56%), hsl(38 95% 66%));
+    --gradient-hero: linear-gradient(135deg, hsl(208 100% 30%), hsl(142 67% 45%));
+    
+    /* Shadows */
+    --shadow-card: 0 2px 8px hsla(210, 24%, 16%, 0.06);
+    --shadow-dialog: 0 8px 32px hsla(210, 24%, 16%, 0.12);
+    --shadow-alert: 0 4px 16px hsla(38, 95%, 56%, 0.2);
+    
+    /* Typography */
+    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+    
+    /* Animations */
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
