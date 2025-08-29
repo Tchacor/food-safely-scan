@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Inventory from "./pages/Inventory";
-import Production from "./pages/Production";
+
 import QRCodes from "./pages/QRCodes";
 import Receiving from "./pages/Receiving";
 import Counting from "./pages/Counting";
@@ -22,7 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/inventory" element={<Inventory />} />
-          <Route path="/production" element={<Production />} />
+          
           <Route path="/qr-codes" element={<QRCodes />} />
           <Route path="/receiving" element={<Receiving />} />
           <Route path="/counting" element={<Counting />} />

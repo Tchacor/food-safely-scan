@@ -30,12 +30,6 @@ const menuItems = [
     description: "Controle de estoque e validade"
   },
   {
-    title: "Produção",
-    href: "/production",
-    icon: ChefHat,
-    description: "Ordens de produção"
-  },
-  {
     title: "QR Codes",
     href: "/qr-codes",
     icon: QrCode,
